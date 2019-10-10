@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05</title>
+    <script src="vue2.6.10.js"></script>
+</head>
+<body>
+<div id="demo5">
+    <demo-button></demo-button>
+</div>
+<script>
+    var DemoButton={
+        template: `<div>
+                      <button @click="sendVerify()" @mouseover="Mouseover()" @mouseleave="Mouseleave()" :style="button">
+                          {{test}}
+                      </button>
+                  </div>`,
+        data() {
+            return {
+                test:'test',
+                button: 'background:white;border:1px solid blue; width:100px;height:35px;'
+            }
+        },
+        methods:{
+            sendVerify(){
+                alert(this.test)
+            },
+            Mouseover: function () {
+                this.button='background:blue;color:white;width:100px;height:35px;'
+            },
+            Mouseleave:function () {
+                this.button='background:white;border:1px solid blue; width:100px;height:35px;'
+            }
+
+        }
+    }
+    new Vue({
+        el:'#demo5',
+        components:{
+            'demo-button':DemoButton
+        }
+    })
+</script>
+</body>
+</html>
